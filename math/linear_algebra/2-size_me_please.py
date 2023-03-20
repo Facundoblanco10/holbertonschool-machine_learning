@@ -3,6 +3,7 @@
 
 
 def matrix_shape(matrix):
+    """Function to shape a matrix"""
     shape = []
     shape.append(len(matrix))
     while matrix[0] and type(matrix[0]) != int:
