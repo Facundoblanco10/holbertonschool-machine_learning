@@ -6,6 +6,9 @@ def matrix_transpose(matrix):
     """Transpose a matrix"""
     transpose = []
     for idx, i in enumerate(matrix):
+        if type(i) == int:
+            transpose = matrix
+            return transpose
         trix = []
         for j in matrix:
             if idx < len(j):
