@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Matrix Transposition"""
 
+
 def matrix_transpose(matrix):
     """Transpose a matrix"""
     rows = len(matrix)
