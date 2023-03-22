@@ -14,4 +14,3 @@ def np_elementwise(mat1, mat2):
     div = mat1 / mat2
 
     return (add, sub, mul, div)
-        
