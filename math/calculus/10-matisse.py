@@ -5,6 +5,8 @@
 def poly_derivative(poly):
     """Calculate the derivative of a polynomial"""
     result = []
+    if type(poly) != list and type(poly) != tuple:
+        return None
     if len(poly) == 1:
         return [0]
     for idx, i in enumerate(poly):
