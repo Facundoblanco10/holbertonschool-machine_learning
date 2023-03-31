@@ -15,5 +15,6 @@ def poly_derivative(poly):
         if idx == 0:
             continue
         result.append(i * idx)
-
+    if len(result) == 0:
+        return None
     return result
