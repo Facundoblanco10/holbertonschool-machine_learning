@@ -18,6 +18,8 @@ class Poisson():
             self.lambtha = float(sum(data)) / len(data)
 
     def pmf(self, k):
+        """Calculates the value of the PMF"""
+        """for a given number of successes"""
         def factorial(n):
             if n == 0:
                 return 1
