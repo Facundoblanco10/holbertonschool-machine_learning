@@ -36,6 +36,9 @@ class Neuron():
     def sigmoid(self, z):
         """Calculates the sigmoid activation function"""
         return 1 / (1 + np.exp(-z))
-    
+
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression"""
+        m = Y.shape[1]
+        cost = (-1/m) * np.sum(Y*np.log(A) + (1-Y)*np.log(1.0000001 - A))
+        return cost
