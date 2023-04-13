@@ -48,6 +48,7 @@ class Neuron():
         return 1 / (1 + np.exp(-z))
 
     def cost(self, Y, A):
+        """Calculates the cost of the model using logistic regression"""
         # Get the number of examples in the training set
         m = Y.shape[1]
 
@@ -57,7 +58,7 @@ class Neuron():
 
     def evaluate(self, X, Y):
         """Evaluates the neurons predictions"""
-        # Calculate the activated output of the neuron forr the input data
+        # Calculate the activated output of the neuron given the input data
         A = self.forward_prop(X)
 
         # Apply a threshold of 0.5 to the
