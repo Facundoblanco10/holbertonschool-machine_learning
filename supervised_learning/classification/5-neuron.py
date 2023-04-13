@@ -57,7 +57,7 @@ class Neuron():
 
     def evaluate(self, X, Y):
         """Evaluates the neurons predictions"""
-        # Calculate the activated output of the neuron for the input data
+        # Calculate the activated output of the neuron forr the input data
         A = self.forward_prop(X)
 
         # Apply a threshold of 0.5 to the
