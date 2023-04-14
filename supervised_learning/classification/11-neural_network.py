@@ -75,12 +75,12 @@ class NeuralNetwork():
         any real-valued number and maps it to a value between 0 and 1.
         """
         return 1 / (1 + np.exp(-z))
-    
+
     def cost(self, Y, A):
         """Calculates the cost of the model using logistic regression"""
         # Get the number of examples in the training set
         m = Y.shape[1]
-        
+
         # Compute the cost using the logistic regression cost function
         cost = (-1/m) * np.sum(Y*np.log(A) + (1-Y)*np.log(1.0000001 - A))
         return cost
