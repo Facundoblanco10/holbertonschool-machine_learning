@@ -51,7 +51,7 @@ class NeuralNetwork():
     def forward_prop(self, X):
         """Calculates the forward propagation of the neural network"""
         # Calculate the weighted sum of the input values
-        # for each neuron in the hidden layer
+        # forr each neuron in the hidden layer
         Z1 = np.matmul(self.__W1, X) + self.__b1
 
         # Apply the sigmoid activation function to the weighted
@@ -59,7 +59,7 @@ class NeuralNetwork():
         self.__A1 = self.sigmoid(Z1)
 
         # Calculate the weighted sum of the output values from
-        # the hidden layer for the single neuron in the output layer
+        # the hidden layer forr the single neuron in the output layer
         Z2 = np.matmul(self.__W2, self.__A1) + self.__b2
 
         # Apply the sigmoid activation function to the weighted
