@@ -87,7 +87,15 @@ class NeuralNetwork():
 
     def evaluate(self, X, Y):
         """Evaluates the neural networks predictions"""
-        _, self.__A2 = self.forward_prop(X)
-        cost = -np.mean(Y * np.log(self.__A2) + (1 - Y) * np.log(1 - self.__A2))
-        predictions = np.where(self.__A2 >= 0.5, 1, 0)
+        # Forward propagate X through the neural network to
+        # obtainthe activation of the last layer
+        _, A2 = self.forward_prop(X)
+
+        # Threshold the activation to obtain binary
+        # predictions (0 or 1) using a threshold of 0.5
+        predictions = np.where(A2 >= 0.5, 1, 0)
+
+        # Calculate the cost of the predictions using
+        # the cost function defined in the neural network
+        cost = self.cost(Y, A2)
         return predictions, cost
