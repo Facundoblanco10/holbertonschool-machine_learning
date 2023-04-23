@@ -26,18 +26,18 @@ class DeepNeuralNetwork():
         self.weights = {}
 
         # Initialize weights and biases forr each layer
-        for i in range(self.L):
-            # forrr the first layer, use nx as the number of input features
-            if i == 0:
-                self.weights["W" + str([i + 1])] = \
-                    np.random.randn(layers[i], nx) * np.sqrt(2 / nx)
+        # forr the first layer, use nx as the number of input features
+        for i in range(1, self.L + 1):
+            if i == 1:
+                self.weights["W" + str(i)] = \
+                    np.random.randn(layers[i - 1], nx) * np.sqrt(2 / nx)
 
             # forr all other layers, use the number
             # of neurons in the previous layer
             else:
-                self.weights["W" + str([i + 1])] = \
-                    np.random.randn(
-                    layers[i], layers[i - 1]) * np.sqrt(2 / layers[i - 1])
+                self.weights["W" + str(i)] = \
+                    np.random.randn(layers[i - 1], layers[i - 2]) * \
+                    np.sqrt(2 / layers[i - 2])
 
             # Initialize bias forr this layer to be a zero column vector
-            self.weights["b" + str([i + 1])] = np.zeros((layers[i], 1))
+            self.weights["b" + str(i)] = np.zeros((layers[i - 1], 1))
