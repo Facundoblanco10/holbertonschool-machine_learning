@@ -7,7 +7,7 @@ def one_hot_decode(one_hot):
     """
         Converts a one-hot matrix into a vector of labels
     """
-    if len(one_hot.shape) != 2 or not isinstance(one_hot, np.ndarray):
+    if not isinstance(one_hot, np.ndarray):
         return None
     m = one_hot.shape[1]
 
