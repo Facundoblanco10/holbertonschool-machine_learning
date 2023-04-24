@@ -9,6 +9,8 @@ def one_hot_decode(one_hot):
     """
     if not isinstance(one_hot, np.ndarray):
         return None
+    if len(one_hot.shape) != 2:
+        return None
     m = one_hot.shape[1]
 
     # get the index of the maximum value along the axis 0 of the one_hot
