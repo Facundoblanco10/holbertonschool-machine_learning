@@ -8,6 +8,7 @@ import numpy as np
 
 class NeuralNetwork():
     """Class NeuralNetwork"""
+
     def __init__(self, nx, nodes):
         if type(nx) is not int:
             raise TypeError("nx must be an integer")
@@ -88,7 +89,7 @@ class NeuralNetwork():
     def evaluate(self, X, Y):
         """Evaluates the neural networks predictions"""
         # Forward propagate X through the neural network to
-        # obtainthe activation of the last layer
+        # obtain the activation of the last layer
         _, A2 = self.forward_prop(X)
 
         # Threshold the activation to obtain binary
