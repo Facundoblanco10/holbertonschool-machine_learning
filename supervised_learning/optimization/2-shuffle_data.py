@@ -13,6 +13,11 @@ def shuffle_data(X, Y):
     - ny is the number of features in Y
     Returns: the shuffled X and Y matrices
     """
-    shuf_x = np.random.permutation(X)
-    shuf_y = np.random.permutation(Y)
+    # Generate a random permutation of the indices
+    permutation = np.random.permutation(X.shape[0])
+
+    # Shuffle the data points in X and Y using the same permutation
+    shuf_x = X[permutation]
+    shuf_y = Y[permutation]
+
     return shuf_x, shuf_y
