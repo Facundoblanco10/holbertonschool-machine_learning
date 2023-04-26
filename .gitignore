@@ -5,6 +5,3 @@ Miniconda3-latest-Linux-x86_64.sh
 settings.json
 checkpoint
 model.ckpt*
-graph.ckpt.data-00000-of-00001
-graph.ckpt.index
-graph.ckpt.meta
