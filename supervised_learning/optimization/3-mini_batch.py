@@ -24,9 +24,11 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
         m, nx = X_train.shape
 
         # Loop over epochs
-        for epoch in range(epochs + 1):
-            # Shuffle data
-            shuffled_X, shuffled_Y = shuffle_data(X_train, Y_train)
+        for i in range(epochs + 1):
+            # Train the model using mini-batches
+            if i < epochs:
+                # Shuffle the training data
+                shuffled_X, shuffled_Y = shuffle_data(X_train, Y_train)
 
             # Print cost and accuracy on entire training and
             # validation sets after each epoch
@@ -34,7 +36,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                 x: shuffled_X, y: shuffled_Y})
             valid_cost, valid_accuracy = sess.run(
                 [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
-            print("After {0} epochs:".format(epoch))
+            print("After {0} epochs:".format(i))
             print("\tTraining Cost={0}".format(train_cost))
             print("\tTraining Accuracy={0}".format(train_accuracy))
             print("\tValidation Cost={0}".format(valid_cost))
