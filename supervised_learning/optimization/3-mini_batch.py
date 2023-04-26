@@ -33,7 +33,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
             # Print cost and accuracy on entire training and
             # validation sets after each epoch
             train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
-                x: shuffled_X, y: shuffled_Y})
+                x: X_train, y: Y_train})
             valid_cost, valid_accuracy = sess.run(
                 [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
             print("After {0} epochs:".format(i))
