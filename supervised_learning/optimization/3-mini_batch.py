@@ -42,14 +42,19 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                 if i % 100 == 0:
                     step_cost, step_accuracy = sess.run(
                         [loss, accuracy], feed_dict={x: X_batch, y: Y_batch})
-                    print(f"\tStep {i//batch_size+1}: Cost={step_cost:.4f}, \
-                        Accuracy={step_accuracy:.4f}")
+                    print(f"\tStep {i//batch_size+1}:")
+                    print(f"\t\tCost={step_cost:.4f}")
+                    print(f"\t\tAccuracy={step_accuracy:.4f}")
             # Print cost and accuracy on entire training and validation sets after each epoch
             train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
                                                   x: shuffled_X, y: shuffled_Y})
             valid_cost, valid_accuracy = sess.run(
                 [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
-            print(f"After {epoch+1} epochs:\n\tTraining Cost={train_cost:.4f}, Training Accuracy={train_accuracy:.4f}\n\tValidation Cost={valid_cost:.4f}, Validation Accuracy={valid_accuracy:.4f}")
+            print(f"After {epoch+1} epochs:")
+            print(f"\tTraining Cost={train_cost:.4f}")
+            print(f"\tTraining Accuracy={train_accuracy:.4f}")
+            print(f"\tValidation Cost={valid_cost:.4f}")
+            print(f"\tValidation Accuracy={valid_accuracy:.4f}")
 
         # Save session
         save_path = saver.save(sess, save_path)
