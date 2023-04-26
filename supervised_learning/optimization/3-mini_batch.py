@@ -42,8 +42,8 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                 if i % 100 == 0:
                     step_cost, step_accuracy = sess.run(
                         [loss, accuracy], feed_dict={x: X_batch, y: Y_batch})
-                    print(f'\tStep {i//batch_size+1}: Cost={step_cost:.4f}, \
-                        Accuracy={step_accuracy:.4f}')
+                    print(f"\tStep {i//batch_size+1}: Cost={step_cost:.4f}, \
+                        Accuracy={step_accuracy:.4f}")
             # Print cost and accuracy on entire training and validation sets after each epoch
             train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
                                                   x: shuffled_X, y: shuffled_Y})
