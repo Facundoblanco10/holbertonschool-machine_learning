@@ -37,10 +37,10 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
             valid_cost, valid_accuracy = sess.run(
                 [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
             print("After {0} epochs:".format(i))
-            print("\tTraining Cost={0}".format(train_cost))
-            print("\tTraining Accuracy={0}".format(train_accuracy))
-            print("\tValidation Cost={0}".format(valid_cost))
-            print("\tValidation Accuracy={0}".format(valid_accuracy))
+            print("\tTraining Cost: {0}".format(train_cost))
+            print("\tTraining Accuracy: {0}".format(train_accuracy))
+            print("\tValidation Cost: {0}".format(valid_cost))
+            print("\tValidation Accuracy: {0}".format(valid_accuracy))
 
             # Calculate the number of batches
             if m % batch_size == 0:
