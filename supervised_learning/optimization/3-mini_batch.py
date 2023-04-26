@@ -63,7 +63,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                 sess.run(train_op, feed_dict=next_train)
 
                 # Print the mini-batch results every 100 batches
-                if (b + 1) % 100 == 0 and b != 0:
+                if (b + 1) % 100 == 0 and b != 0 and i != epochs:
                     loss_mini_batch = sess.run(loss, feed_dict=next_train)
                     acc_mini_batch = sess.run(accuracy,
                                               feed_dict=next_train)
