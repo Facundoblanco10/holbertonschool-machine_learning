@@ -29,6 +29,17 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
             # Shuffle data
             shuffled_X, shuffled_Y = shuffle_data(X_train, Y_train)
 
+            # Print cost and accuracy on entire training and validation sets after each epoch
+            train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
+                x: shuffled_X, y: shuffled_Y})
+            valid_cost, valid_accuracy = sess.run(
+                [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
+            print("After {0} epochs:".format(epoch+1))
+            print("\tTraining Cost={0:.4f}".format(train_cost))
+            print("\tTraining Accuracy={0:.4f}".format(train_accuracy))
+            print("\tValidation Cost={0:.4f}".format(valid_cost))
+            print("\tValidation Accuracy={0:.4f}".format(valid_accuracy))
+
             # Loop over batches
             for i in range(0, X_train.shape[0], batch_size):
                 X_batch = shuffled_X[i:i + batch_size]
@@ -45,16 +56,6 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                     print("\tStep {0}: ".format(i//batch_size+1))
                     print("\t\tCost={0:.4f}".format(step_cost))
                     print("\t\tAccuracy={0:.4f}".format(step_accuracy))
-            # Print cost and accuracy on entire training and validation sets after each epoch
-            train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
-                                                  x: shuffled_X, y: shuffled_Y})
-            valid_cost, valid_accuracy = sess.run(
-                [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
-            print("After {0} epochs:".format(epoch+1))
-            print("\tTraining Cost={0:.4f}".format(train_cost))
-            print("\tTraining Accuracy={0:.4f}".format(train_accuracy))
-            print("\tValidation Cost={0:.4f}".format(valid_cost))
-            print("\tValidation Accuracy={0:.4f}".format(valid_accuracy))
 
         # Save session
         save_path = saver.save(sess, save_path)
