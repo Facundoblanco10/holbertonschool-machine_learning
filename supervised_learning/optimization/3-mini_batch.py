@@ -42,22 +42,22 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                 if i % 100 == 0:
                     step_cost, step_accuracy = sess.run(
                         [loss, accuracy], feed_dict={x: X_batch, y: Y_batch})
-                    print(f"\tStep {i//batch_size+1}:")
-                    print(f"\t\tCost={step_cost:.4f}")
-                    print(f"\t\tAccuracy={step_accuracy:.4f}")
+                    print("\tStep {0}: ".format(i//batch_size+1))
+                    print("\t\tCost={0:.4f}".format(step_cost))
+                    print("\t\tAccuracy={0:.4f}".format(step_accuracy))
             # Print cost and accuracy on entire training and validation sets after each epoch
             train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
                                                   x: shuffled_X, y: shuffled_Y})
             valid_cost, valid_accuracy = sess.run(
                 [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
-            print(f"After {epoch+1} epochs:")
-            print(f"\tTraining Cost={train_cost:.4f}")
-            print(f"\tTraining Accuracy={train_accuracy:.4f}")
-            print(f"\tValidation Cost={valid_cost:.4f}")
-            print(f"\tValidation Accuracy={valid_accuracy:.4f}")
+            print("After {0} epochs:".format(epoch+1))
+            print("\tTraining Cost={0:.4f}".format(train_cost))
+            print("\tTraining Accuracy={0:.4f}".format(train_accuracy))
+            print("\tValidation Cost={0:.4f}".format(valid_cost))
+            print("\tValidation Accuracy={0:.4f}".format(valid_accuracy))
 
         # Save session
         save_path = saver.save(sess, save_path)
-        print(f'Model saved in path: {save_path}')
+        print("Model saved in path: {0}".format(save_path))
 
     return save_path
