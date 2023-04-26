@@ -49,7 +49,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
                                                   x: shuffled_X, y: shuffled_Y})
             valid_cost, valid_accuracy = sess.run(
                 [loss, accuracy], feed_dict={x: X_valid, y: Y_valid})
-            print(f'After {epoch+1} epochs:\n\tTraining Cost={train_cost:.4f}, Training Accuracy={train_accuracy:.4f}\n\tValidation Cost={valid_cost:.4f}, Validation Accuracy={valid_accuracy:.4f}')
+            print(f"After {epoch+1} epochs:\n\tTraining Cost={train_cost:.4f}, Training Accuracy={train_accuracy:.4f}\n\tValidation Cost={valid_cost:.4f}, Validation Accuracy={valid_accuracy:.4f}")
 
         # Save session
         save_path = saver.save(sess, save_path)
