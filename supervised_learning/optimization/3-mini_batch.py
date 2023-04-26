@@ -29,7 +29,8 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
             # Shuffle data
             shuffled_X, shuffled_Y = shuffle_data(X_train, Y_train)
 
-            # Print cost and accuracy on entire training and validation sets after each epoch
+            # Print cost and accuracy on entire training and
+            # validation sets after each epoch
             train_cost, train_accuracy = sess.run([loss, accuracy], feed_dict={
                 x: shuffled_X, y: shuffled_Y})
             valid_cost, valid_accuracy = sess.run(
