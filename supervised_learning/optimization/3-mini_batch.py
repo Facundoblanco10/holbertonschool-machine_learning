@@ -24,7 +24,7 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
         m, nx = X_train.shape
 
         # Loop over epochs
-        for epoch in range(epochs):
+        for epoch in range(epochs + 1):
             # Shuffle data
             shuffled_X, shuffled_Y = shuffle_data(X_train, Y_train)
 
