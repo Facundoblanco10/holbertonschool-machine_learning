@@ -23,6 +23,12 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
         train_op = tf.get_collection("train_op")[0]
         m, nx = X_train.shape
 
+        # Calculate the number of batches
+        if m % batch_size == 0:
+            n_batches = m // batch_size
+        else:
+            n_batches = m // batch_size + 1
+
         # Loop over epochs
         for i in range(epochs + 1):
             # Train the model using mini-batches
@@ -42,11 +48,6 @@ def train_mini_batch(X_train, Y_train, X_valid, Y_valid,
             print("\tValidation Cost: {0}".format(valid_cost))
             print("\tValidation Accuracy: {0}".format(valid_accuracy))
 
-            # Calculate the number of batches
-            if m % batch_size == 0:
-                n_batches = m // batch_size
-            else:
-                n_batches = m // batch_size + 1
             # Train the model using mini-batches
             for b in range(n_batches):
                 start = b * batch_size
