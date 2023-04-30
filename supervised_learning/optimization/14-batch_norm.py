@@ -16,8 +16,9 @@ def create_batch_norm_layer(prev, n, activation):
     """
     # Initialize the base layer with 'Dense' function from tensorflow
     # The 'prev' input is passed through a dense layer with n nodes
+    k_init = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
     layer = tf.layers.Dense(units=n,
-                            kernel_initializer=tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG"),
+                            kernel_initializer=k_init,
                             use_bias=False)(prev)
 
     # Initialize trainable parameters 'gamma' and 'beta' as vectors of 1
