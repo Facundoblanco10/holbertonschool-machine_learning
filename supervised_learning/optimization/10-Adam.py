@@ -18,10 +18,12 @@ def create_Adam_op(loss, alpha, beta1, beta2, epsilon):
     global_step = tf.Variable(0, trainable=False)
 
     # Define Adam optimizer with given hyperparameters
-    optimizer = tf.train.AdamOptimizer(learning_rate=alpha, beta1=beta1, beta2=beta2, epsilon=epsilon)
+    optimizer = tf.train.AdamOptimizer(learning_rate=alpha, beta1=beta1,
+                                       beta2=beta2, epsilon=epsilon)
 
     # Compute gradients and apply them using the Adam optimizer
     grads_and_vars = optimizer.compute_gradients(loss)
-    train_op = optimizer.apply_gradients(grads_and_vars, global_step=global_step)
+    train_op = optimizer.apply_gradients(grads_and_vars,
+                                         global_step=global_step)
 
     return train_op
