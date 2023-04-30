@@ -9,8 +9,8 @@ import numpy as np
 def batch_norm(Z, gamma, beta, epsilon):
     """
     @Z is a numpy.ndarray of shape (m, n) that should be normalized
-    @m is the number of data points
-    @n is the number of features in Z
+        @m is the number of data points
+        @n is the number of features in Z
     @gamma is a numpy.ndarray of shape (1, n)
     containing the scales used for batch normalization
     @beta is a numpy.ndarray of shape (1, n)
