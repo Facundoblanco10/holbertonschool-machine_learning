@@ -11,12 +11,23 @@ def l2_reg_create_layer(prev, n, activation, lambtha):
     @lambtha is the L2 regularization parameter
     Returns: the output of the new layer
     """
-    # Define the regularizer
-    regularizer = tf.contrib.layers.l2_regularizer(scale=lambtha)
+    # Initlializes the init variable with the variance scaling initializer
+    # from TensorFlow's contrib module
+    init = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
+    
+    # Initizalizes the regularizer variable
+    # with the L2 regularization function.
+    # The lambtha parameter specifies the strength of the regularization
+    regularizer = tf.contrib.layers.l2_regularizer(lambtha)
 
-    # Create the layer with L2 regularization
-    layer = tf.layers.dense(inputs=prev, units=n,
+    # Creates a dense layer with n units, using the specified activation
+    # function and input from the previous layer prev. The layer's
+    # weights are initialized using the init variable and regularized
+    # using the regularizer variable
+    layer = tf.layers.dense(units=n,
                             activation=activation,
+                            inputs=prev,
+                            kernel_initializer=init,
                             kernel_regularizer=regularizer)
 
     return layer
