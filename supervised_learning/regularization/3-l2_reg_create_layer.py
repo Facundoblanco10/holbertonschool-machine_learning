@@ -14,7 +14,7 @@ def l2_reg_create_layer(prev, n, activation, lambtha):
     # Initlializes the init variable with the variance scaling initializer
     # from TensorFlow's contrib module
     init = tf.contrib.layers.variance_scaling_initializer(mode="FAN_AVG")
-    
+
     # Initizalizes the regularizer variable
     # with the L2 regularization function.
     # The lambtha parameter specifies the strength of the regularization
