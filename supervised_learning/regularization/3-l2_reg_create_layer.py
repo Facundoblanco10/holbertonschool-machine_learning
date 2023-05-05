@@ -13,8 +13,10 @@ def l2_reg_create_layer(prev, n, activation, lambtha):
     """
     # Define the regularizer
     regularizer = tf.contrib.layers.l2_regularizer(scale=lambtha)
-        
+
     # Create the layer with L2 regularization
-    layer = tf.layers.dense(inputs=prev, units=n, activation=activation, kernel_regularizer=regularizer)
+    layer = tf.layers.dense(inputs=prev, units=n,
+                            activation=activation,
+                            kernel_regularizer=regularizer)
 
     return layer
